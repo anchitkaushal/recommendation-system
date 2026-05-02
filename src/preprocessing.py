@@ -1,6 +1,5 @@
 import pandas as pd
-def empty():
-    return None
+
 
 def preprocess_data(data_link):
     data = pd.read_csv(data_link)
