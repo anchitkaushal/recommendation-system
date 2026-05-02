@@ -1,5 +1,6 @@
 import pandas as pd
-
+def empty():
+    return None
 
 def preprocess_data(data_link):
     data = pd.read_csv(data_link)
@@ -17,7 +18,7 @@ def preprocess_data(data_link):
     active_movies = movie_counts[movie_counts > 20].index
     data = data[data['movie_id'].isin(active_movies)]
     
-    
+
     
     
     print("Data preprocessing completed.")
