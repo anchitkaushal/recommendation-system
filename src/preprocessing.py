@@ -16,13 +16,18 @@ def preprocess_data(data_link):
     movie_counts = data['movie_id'].value_counts()
     active_movies = movie_counts[movie_counts > 20].index
     data = data[data['movie_id'].isin(active_movies)]
-    
+    data.to_csv('data/preprocessed/preprocessed_data.csv', index=False)
 
+    
+    matix = data.pivot_table(
+        index = "user_id",
+        columns = "movie_title",
+        values = "rating"
+    )
     
     
     print("Data preprocessing completed.")
-    print(f"Data shape after preprocessing: {data.shape}")
-    return data
+    return matix
     
    
     
